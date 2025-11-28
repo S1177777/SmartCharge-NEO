@@ -1,0 +1,135 @@
+// SmartCharge NEO - Prisma Schema
+// Intelligent EV Charging Station Management System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Charging station status enum
+enum StationStatus {
+  AVAILABLE    // Available for charging
+  OCCUPIED     // Currently charging
+  RESERVED     // Reserved by a user
+  MAINTENANCE  // Under maintenance
+  FAULT        // System fault
+}
+
+// Power type enum (charging speed)
+enum PowerType {
+  AC_SLOW   // 7 kW
+  AC_FAST   // 22 kW
+  DC_FAST   // 50+ kW
+}
+
+// Reservation status enum
+enum ReservationStatus {
+  PENDING    // Scheduled for future
+  ACTIVE     // Currently active
+  COMPLETED  // Finished
+  CANCELLED  // Cancelled by user
+}
+
+// User model
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+
+  reservations      Reservation[]
+  chargingSessions  ChargingSession[]
+
+  @@map("users")
+}
+
+// Charging station model (core entity)
+model ChargingStation {
+  id          Int           @id @default(autoincrement())
+  name        String        // "Station Bastille A1"
+  status      StationStatus @default(AVAILABLE)
+  powerType   PowerType     @default(AC_SLOW)
+  maxPower    Float         // kW (e.g., 7.4, 22.0, 50.0)
+
+  // Geographic location (for map display)
+  latitude    Float
+  longitude   Float
+  address     String
+  city        String        @default("Paris")
+
+  // IoT device association
+  deviceId    String?       @unique  // ESP32 unique identifier
+  lastPing    DateTime?     // Last heartbeat time
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  reservations      Reservation[]
+  chargingSessions  ChargingSession[]
+  telemetryData     TelemetryData[]
+
+  @@map("charging_stations")
+}
+
+// Reservation model
+model Reservation {
+  id         String            @id @default(cuid())
+  userId     String
+  stationId  Int
+  status     ReservationStatus @default(PENDING)
+
+  startTime  DateTime
+  endTime    DateTime
+
+  createdAt  DateTime          @default(now())
+
+  user       User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  station    ChargingStation   @relation(fields: [stationId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([stationId])
+  @@index([startTime, endTime])
+  @@map("reservations")
+}
+
+// Charging session model (actual charging records)
+model ChargingSession {
+  id              String    @id @default(cuid())
+  userId          String
+  stationId       Int
+
+  startTime       DateTime  @default(now())
+  endTime         DateTime?
+
+  energyDelivered Float?    // kWh (actual energy delivered)
+  cost            Float?    // EUR (cost)
+
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  station         ChargingStation @relation(fields: [stationId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([stationId])
+  @@map("charging_sessions")
+}
+
+// IoT telemetry data model (sensor data)
+model TelemetryData {
+  id          String    @id @default(cuid())
+  stationId   Int
+
+  voltage     Float?    // V (voltage)
+  current     Float?    // A (current)
+  power       Float?    // kW (power)
+  temperature Float?    // °C (temperature)
+
+  timestamp   DateTime  @default(now())
+
+  station     ChargingStation @relation(fields: [stationId], references: [id], onDelete: Cascade)
+
+  @@index([stationId, timestamp])
+  @@map("telemetry_data")
+}

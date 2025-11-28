@@ -1,55 +1,36 @@
-# SmartCharge NEO ⚡🚗
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-> **Gestion intelligente des bornes de recharge pour véhicules électriques via IoT et IA.**
+## Getting Started
 
-![Status](https://img.shields.io/badge/Status-Development-orange)
-![Tech](https://img.shields.io/badge/Stack-Next.js_|_Neon_|_IoT-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
+First, run the development server:
 
-## 📖 À propos du projet
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-**SmartCharge NEO** est une solution complète (Hardware + Software) visant à résoudre la problématique de la saturation des bornes de recharge urbaines.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Face à l'augmentation rapide des véhicules électriques, ce projet propose une approche connectée pour :
-1.  **Réduire le temps d'attente** des utilisateurs grâce à une visualisation en temps réel.
-2.  **Optimiser le réseau électrique** (Smart Grid) via une distribution d'énergie assistée par IA.
-3.  **Faciliter l'expérience utilisateur** avec une application fluide pour la réservation.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Ce projet a été développé dans le cadre de notre cursus d'ingénierie à **Sorbonne Université**.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
----
+## Learn More
 
-## 🚀 Fonctionnalités Clés
+To learn more about Next.js, take a look at the following resources:
 
-### 🔌 Côté IoT (Borne Connectée)
-* **Surveillance en temps réel :** Détection de l'état de la borne (Libre / Occupée / En panne) via des capteurs de courant/tension.
-* **Indicateurs visuels :** Feedback LED immédiat sur le statut de la charge.
-* **Communication :** Transmission des données télémétriques vers le cloud.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### 📱 Côté Application (Expérience Utilisateur)
-* **Carte interactive :** Localisation des bornes et affichage de leur disponibilité en direct.
-* **Réservation intelligente :** Possibilité de réserver une borne à distance.
-* **Tableau de bord :** Suivi de la consommation et historique des recharges.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### 🧠 Côté Intelligence (Smart Grid)
-* **Algorithme de délestage :** Gestion dynamique de la puissance délivrée pour éviter la surcharge du réseau local.
-* **Analyse de données :** Utilisation de l'historique pour prédire les pics de fréquentation.
+## Deploy on Vercel
 
----
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## 🛠️ Architecture Technique
-
-Nous utilisons une architecture **Moderne et Serverless** pour garantir la scalabilité et la rapidité de développement.
-
-| Composant | Technologie | Description |
-| :--- | :--- | :--- |
-| **Frontend & Backend** | **Next.js 14 (App Router)** | Framework React complet hébergé sur **Vercel**. Gère l'UI et les API Routes. |
-| **Base de Données** | **Neon (Serverless Postgres)** | Stockage des utilisateurs, réservations et états des bornes. |
-| **ORM** | **Prisma** | Gestion des schémas de données et communication type-safe avec la DB. |
-| **IoT Hardware** | **ESP32** | Microcontrôleur gérant les capteurs et l'envoi de données (HTTP/MQTT). |
-| **Styling** | **Tailwind CSS** | Design moderne et responsive. |
-
-### Schéma de flux de données (Simplifié)
-`[ESP32 / Capteurs]` ➡ `[Next.js API (Vercel)]` ➡ `[Neon Postgres]` ⬅ `[Interface Utilisateur]`
-
----
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
