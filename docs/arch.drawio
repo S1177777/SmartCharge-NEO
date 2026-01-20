@@ -1,52 +1,52 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
   <diagram name="第 1 页" id="IwFwXu2D-bPzrRMHCoAJ">
-    <mxGraphModel dx="1183" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="946" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="TTwOyqcQxPWVicelveVb-1" value="Stockage Neon" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-1" value="Stockage Neon" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="23" y="488" width="212" height="129" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-2" value="Architecture Serverless Vercel" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-2" value="Architecture Serverless Vercel" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="20" y="140" width="287" height="257" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-3" value="Borne de Recharge IoT" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-3" value="Borne de Recharge IoT" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="314.5" y="340" width="543" height="460" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-4" value="👤 Conducteur / App Mobile" style="rounded=1;whiteSpace=wrap;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-4" value="👤 Conducteur / App Mobile" style="rounded=1;whiteSpace=wrap;arcSize=50;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="48" y="20" width="231" height="63" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-5" value="⚡ Capteurs Courant" style="rounded=1;arcSize=20;strokeWidth=2" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-5" value="⚡ Capteurs Courant" style="rounded=1;arcSize=20;strokeWidth=2" parent="1" vertex="1">
           <mxGeometry x="654" y="335" width="182" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-6" value="🤖 ESP32 Controller" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-6" value="🤖 ESP32 Controller" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="483" y="470" width="206" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-7" value="💡 LED Status" style="rounded=1;arcSize=20;strokeWidth=2" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-7" value="💡 LED Status" style="rounded=1;arcSize=20;strokeWidth=2" parent="1" vertex="1">
           <mxGeometry x="520" y="691" width="132" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-8" value="📱 Next.js Frontend" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-8" value="📱 Next.js Frontend" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="60" y="182" width="208" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-9" value="⚙️ Next.js API Routes" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-9" value="⚙️ Next.js API Routes" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="55" y="335" width="217" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-10" value="🗄️ Neon Postgres" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;" vertex="1" parent="1">
+        <mxCell id="TTwOyqcQxPWVicelveVb-10" value="🗄️ Neon Postgres" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="58" y="513" width="142" height="79" as="geometry" />
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-11" value="Data Analogique" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.82;entryY=0.01;rounded=0;" edge="1" parent="1" source="TTwOyqcQxPWVicelveVb-5" target="TTwOyqcQxPWVicelveVb-6">
+        <mxCell id="TTwOyqcQxPWVicelveVb-11" value="Data Analogique" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.82;entryY=0.01;rounded=0;" parent="1" source="TTwOyqcQxPWVicelveVb-5" target="TTwOyqcQxPWVicelveVb-6" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="744" y="488" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-12" value="GPIO Control" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1.01;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="TTwOyqcQxPWVicelveVb-6" target="TTwOyqcQxPWVicelveVb-7">
+        <mxCell id="TTwOyqcQxPWVicelveVb-12" value="GPIO Control" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1.01;entryX=0.5;entryY=0;rounded=0;" parent="1" source="TTwOyqcQxPWVicelveVb-6" target="TTwOyqcQxPWVicelveVb-7" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-13" value="1. HTTP POST JSON" style="curved=1;startArrow=none;endArrow=block;strokeWidth=3;exitX=0.15;exitY=0.01;entryX=0.49;entryY=1;rounded=0;" edge="1" parent="1" source="TTwOyqcQxPWVicelveVb-6" target="TTwOyqcQxPWVicelveVb-9">
+        <mxCell id="TTwOyqcQxPWVicelveVb-13" value="1. HTTP POST JSON" style="curved=1;startArrow=none;endArrow=block;strokeWidth=3;exitX=0.15;exitY=0.01;entryX=0.49;entryY=1;rounded=0;" parent="1" source="TTwOyqcQxPWVicelveVb-6" target="TTwOyqcQxPWVicelveVb-9" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="417" y="488" />
@@ -55,25 +55,26 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-14" value="2. Response Command" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.66;exitY=1;entryX=0.5;entryY=0.01;rounded=0;" edge="1" parent="1" source="TTwOyqcQxPWVicelveVb-9" target="TTwOyqcQxPWVicelveVb-6">
-          <mxGeometry relative="1" as="geometry">
+        <mxCell id="TTwOyqcQxPWVicelveVb-14" value="2. Response Command" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.66;exitY=1;entryX=0.5;entryY=0.01;rounded=0;" parent="1" source="TTwOyqcQxPWVicelveVb-9" target="TTwOyqcQxPWVicelveVb-6" edge="1">
+          <mxGeometry x="0.2903" y="18" relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="229" y="414" />
               <mxPoint x="587" y="451" />
             </Array>
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-15" value="HTTPS" style="curved=1;startArrow=block;endArrow=block;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="TTwOyqcQxPWVicelveVb-4" target="TTwOyqcQxPWVicelveVb-8">
+        <mxCell id="TTwOyqcQxPWVicelveVb-15" value="HTTPS" style="curved=1;startArrow=block;endArrow=block;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" parent="1" source="TTwOyqcQxPWVicelveVb-4" target="TTwOyqcQxPWVicelveVb-8" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-16" value="Fetch SWR" style="curved=1;startArrow=block;endArrow=block;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="TTwOyqcQxPWVicelveVb-8" target="TTwOyqcQxPWVicelveVb-9">
+        <mxCell id="TTwOyqcQxPWVicelveVb-16" value="Fetch SWR" style="curved=1;startArrow=block;endArrow=block;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" parent="1" source="TTwOyqcQxPWVicelveVb-8" target="TTwOyqcQxPWVicelveVb-9" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TTwOyqcQxPWVicelveVb-17" value="Prisma ORM" style="curved=1;startArrow=block;endArrow=block;strokeWidth=3;exitX=0.42;exitY=1;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="TTwOyqcQxPWVicelveVb-9" target="TTwOyqcQxPWVicelveVb-10">
+        <mxCell id="TTwOyqcQxPWVicelveVb-17" value="Prisma ORM" style="curved=1;startArrow=block;endArrow=block;strokeWidth=3;exitX=0.42;exitY=1;entryX=0.5;entryY=0;rounded=0;" parent="1" source="TTwOyqcQxPWVicelveVb-9" target="TTwOyqcQxPWVicelveVb-10" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="129" y="414" />
