@@ -12,9 +12,13 @@ type RouteParams = { params: Promise<{ id: string }> }
 const iotDataSchema = z.object({
   // 传感器数据
   voltage: z.number().min(0).max(500).optional(),      // 电压 V
-  current: z.number().min(0).max(200).optional(),      // 电流 A
-  power: z.number().min(0).max(100).optional(),        // 功率 kW
+  current: z.number().min(-10).max(200).optional(),    // 电流 A (允许负值用于校准)
+  power: z.number().min(-10).max(100).optional(),      // 功率 kW
   temperature: z.number().min(-40).max(100).optional(), // 温度 °C
+
+  // 太阳能数据 (来自 ESP32 EPEVER 控制器)
+  pvPower: z.number().min(0).max(10000).optional(),    // 光伏功率 W
+  battVoltage: z.number().min(0).max(60).optional(),   // 电池电压 V
 
   // 可选：直接更新状态
   status: z.enum(['AVAILABLE', 'OCCUPIED', 'RESERVED', 'MAINTENANCE', 'FAULT']).optional(),
@@ -97,7 +101,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
       )
     }
 
-    // 保存遥测数据
+    // 保存遥测数据 (包括太阳能数据)
     const telemetry = await prisma.telemetryData.create({
       data: {
         stationId,
@@ -105,6 +109,8 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
         current: validated.current,
         power: validated.power,
         temperature: validated.temperature,
+        pvPower: validated.pvPower,
+        battVoltage: validated.battVoltage,
       },
     })
 
@@ -122,8 +128,33 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
       data: updateData,
     })
 
+    // 查找待处理的命令
+    const pendingCommand = await prisma.deviceCommand.findFirst({
+      where: {
+        stationId,
+        status: 'PENDING',
+      },
+      orderBy: {
+        createdAt: 'asc', // 先进先出
+      },
+    })
+
+    // 如果有待处理命令，标记为已发送
+    let command = 'NONE'
+    if (pendingCommand) {
+      await prisma.deviceCommand.update({
+        where: { id: pendingCommand.id },
+        data: {
+          status: 'SENT',
+          sentAt: new Date(),
+        },
+      })
+      command = pendingCommand.command
+    }
+
     return NextResponse.json({
       success: true,
+      command, // ESP32 期望的命令字段 (顶层)
       data: {
         telemetry,
         station: {
@@ -131,12 +162,13 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
           status: updatedStation.status,
           lastPing: updatedStation.lastPing,
         },
+        command, // 也放在 data 中以保持一致性
       },
     })
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { success: false, error: 'Validation failed', details: error.errors },
+        { success: false, error: 'Validation failed', details: error.issues },
         { status: 400 }
       )
     }

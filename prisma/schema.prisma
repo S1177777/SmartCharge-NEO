@@ -71,6 +71,7 @@ model ChargingStation {
   reservations      Reservation[]
   chargingSessions  ChargingSession[]
   telemetryData     TelemetryData[]
+  deviceCommands    DeviceCommand[]
 
   @@map("charging_stations")
 }
@@ -126,10 +127,31 @@ model TelemetryData {
   power       Float?    // kW (power)
   temperature Float?    // °C (temperature)
 
+  // Solar controller data (from EPEVER via ESP32)
+  pvPower     Float?    // W (photovoltaic power)
+  battVoltage Float?    // V (battery voltage)
+
   timestamp   DateTime  @default(now())
 
   station     ChargingStation @relation(fields: [stationId], references: [id], onDelete: Cascade)
 
   @@index([stationId, timestamp])
   @@map("telemetry_data")
+}
+
+// Pending commands for IoT devices
+model DeviceCommand {
+  id          String    @id @default(cuid())
+  stationId   Int
+  command     String    // "START", "STOP", "REBOOT", etc.
+  payload     String?   // Optional JSON payload
+  status      String    @default("PENDING") // PENDING, SENT, ACKNOWLEDGED
+  createdAt   DateTime  @default(now())
+  sentAt      DateTime?
+  ackedAt     DateTime?
+
+  station     ChargingStation @relation(fields: [stationId], references: [id], onDelete: Cascade)
+
+  @@index([stationId, status])
+  @@map("device_commands")
 }

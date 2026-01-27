@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npx tsx:*)",
+      "Bash(dir /b \"D:\\\\EI5S9\\\\MEN_intelligence ambiant\\\\SmartHome\")"
     ]
   }
 }
